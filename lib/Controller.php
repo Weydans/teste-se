@@ -51,13 +51,15 @@ abstract class Controller
 
 	public function responseView( string $view, array $data = [] ) : void 
 	{
-		$templatesPath = __DIR__ . '/../view';
+		$templatesPath = __DIR__ . '/../src/Http/View';
 
 		$twig = new \Twig\Environment(
 			new \Twig\Loader\FilesystemLoader( $templatesPath )
 		);
 
-		echo $twig->render( $view, $data );
+		$viewWithExtension = $view . '.twig.php';
+
+		echo $twig->render( $viewWithExtension, $data );
 	}
 }
 
