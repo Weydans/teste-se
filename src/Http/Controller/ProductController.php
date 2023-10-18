@@ -1,6 +1,6 @@
 <?php
 
-namespace Http\Controller;
+namespace App\Http\Controller;
 
 use Lib\Controller;
 
