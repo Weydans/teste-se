@@ -3,10 +3,10 @@
 {% block content %}
 
 <div class="row mb-3">
-  <h3 class="col-md-6">Produtos</h3>
+  <h3 class="col-md-6">Categorias</h3>
 
   <div class="col-md-6 text-right">
-    <a href="/products/create" class="btn btn-sm btn-success">Novo Produto</a>
+    <a href="/categories/create" class="btn btn-sm btn-success">Nova Categoria</a>
   </div>
 </div>
 
@@ -15,8 +15,6 @@
     <tr>
       <th>Id</th>
       <th>Nome</th>
-      <th>Categoria</th>
-      <th>Valor</th>
       <th>Opções</th>
     </tr>
   </thead>
@@ -26,25 +24,7 @@
     <tr>
       <td>{{ process.id }}</td>
 
-      <td>
-      {% for actionLabel, actionValue in actions %}
-        {{ process.type == actionValue ? actionLabel : '' }}
-      {% endfor %}
-      </td>
-
       <td>{{ process.person.name }}</td>
-      
-      <td>{{ process.unit.name }}</td>
-
-      <td>
-      {% for statusLabel, statusValue in statusList %}
-        {{ process.status == statusValue ? statusLabel : '' }}
-      {% endfor %}
-      </td>
-
-      <td>{{ process.created_at|date('Y-m-d H:i:s') }}</td>
-      
-      <td>{{ process.updated_at|date('Y-m-d H:i:s') }}</td>
       
       <td>
         <div class="d-flex justify-content-start">
@@ -52,7 +32,7 @@
             Editar
           </a>
       
-          <form action="/products/id/delete" method="POST">
+          <form action="/categories/id/delete" method="POST">
             <button type="submit" class="btn btn-sm btn-danger">
                 Remover
             </button>
@@ -71,8 +51,6 @@
       <tr>
           <th>Id</th>
           <th>Nome</th>
-          <th>Categoria</th>
-          <th>Valor</th>
           <th>Opções</th>
       </tr>
   </tfoot>

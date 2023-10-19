@@ -44,9 +44,9 @@ abstract class Controller
 
 	private function setResponse( int $httpCode, string $message ) : void 
 	{
-		$this->response->httpCode 	= $httpCode;
-		$this->response->message 	= $message;
-		$this->response->data	 	= $this->data;
+		$this->response->httpCode = $httpCode;
+		$this->response->message  = $message;
+		$this->response->data	  = $this->data;
 	}
 
 	public function responseView( string $view, array $data = [] ) : void 
