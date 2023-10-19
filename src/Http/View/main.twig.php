@@ -16,10 +16,9 @@
         <div class="container">
           <a class="navbar-brand">Soft<b>Expert</b></a>
           <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Venda</a></li>
             <li class="nav-item"><a class="nav-link" href="/products">Produtos</a></li>
             <li class="nav-item"><a class="nav-link" href="/categories">Categorias</a></li>
-            <li class="nav-item"><a class="nav-link" href="/taxes">Impostos</a></li>
-            <li class="nav-item"><a class="nav-link" href="/sales">Venda</a></li>
           </ul>
         </div>
       </nav>

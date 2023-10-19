@@ -12,6 +12,11 @@
     <input id="name" name="name" type="text" value="" class="form-control">
   </div>
 
+  <div class="mb-3">
+    <label for="taxes" class="form-label">Impostos (%)</label>
+    <input id="taxes" name="taxes" type="number" value="" class="form-control">
+  </div>
+
   <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>
 

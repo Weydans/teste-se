@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controller\SaleController;
 use App\Http\Controller\ProductController;
 use App\Http\Controller\CategoryController;
 
 $route = new Lib\Route( new Lib\Request() );
+
+$route->get( '/', SaleController::class, 'index' );
+$route->get( '/sales/create', SaleController::class, 'create' );
 
 $route->get( '/products', ProductController::class, 'index' );
 $route->get( '/products/create', ProductController::class, 'create' );
