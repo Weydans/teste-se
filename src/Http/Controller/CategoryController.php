@@ -65,7 +65,7 @@ class CategoryController extends Controller
                 ? $e->getMessage() 
                 : 'Houve um erro entre em contato com o suporte';
 
-            return $this->responseView( 'Category/edit', [ 
+            return $this->responseView( 'Product/edit', [ 
                 'errorMessage' => $message 
             ]);
         } 
