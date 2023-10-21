@@ -6,6 +6,12 @@ use App\Http\Controller\CategoryController;
 
 $route = new Lib\Route( new Lib\Request() );
 
+// ================================== 
+// ROTAS API
+$route->post( '/api/sales/store', SaleController::class, 'store' );
+
+// ================================== 
+// ROTAS WEB
 $route->get( '/', SaleController::class, 'index' );
 $route->get( '/sales/create', SaleController::class, 'create' );
 

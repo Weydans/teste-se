@@ -8,11 +8,13 @@ class SaleController
       this._selectProduct = document.getElementById( 'select_product' );
       this._inputQuantity = document.getElementById( 'input_quantity' );
       this._btnAdd        = document.getElementById( 'btn_add' );
+      this._btnSendSale   = document.getElementById( 'btn_send_sale' );
       this._saleItemList  = new SaleItemList( itemsOnSale );
       this._saleItemview  = new SaleListView( table ); 
 
       this.fillSelect( itemsOnSale );
       this.addItem( itemsOnSale );
+      this.sendSale();
     });
   }
 
@@ -79,5 +81,42 @@ class SaleController
   {
     this._selectProduct.value = '';
     this._inputQuantity.value = '';
+  }
+
+  sendSale() {
+    this._btnSendSale.addEventListener( 'click', async ( event ) => { 
+      event.preventDefault();
+
+      if ( this._saleItemList.isEmpty() ) {
+        this._alertContent.innerHTML = `
+          <div class="alert alert-danger">
+            Não é possível registrar uma venda sem itens
+          </div>
+        `;
+
+        return;
+      }
+
+      const requestBody = this._saleItemList.items.map( item => {
+        return { id: item.id, quantity: item.quantity };
+      } );
+      
+      const httpClient = new HTTPClient( '/api' );
+      const response = await httpClient.post( '/sales/store', requestBody );
+
+      if ( response.message && response.httpCode == 201 ) {
+        this._alertContent.innerHTML = `
+          <div class="alert alert-success">${ response.message }</div>
+        `;
+        
+        this._saleItemList.reset();
+        this._saleItemview.render( this._saleItemList );
+
+      } else if ( response.message && response.httpCode >= 400 ) {
+        this._alertContent.innerHTML = `
+          <div class="alert alert-danger">${ response.message }</div>
+        `;
+      }
+    });
   }
 }

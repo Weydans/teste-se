@@ -48,6 +48,7 @@ class SaleController extends Controller
 
     public function store()
     {
-
+        // return $this->responseJson( 201, 'Venda registrada com sucesso' );
+        return $this->responseJson( 400, 'Erro ao registrar venda' );
     }
 }

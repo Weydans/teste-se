@@ -29,11 +29,12 @@
 
 <table id="data_container" class="table table-sm"></table>
 
-<button type="submit" class="btn btn-primary">Registrar Venda</button>
+<button id="btn_send_sale" type="submit" class="btn btn-primary">Registrar Venda</button>
 
 <script src="/assets/js/model/SaleItem.js"></script>
 <script src="/assets/js/model/SaleItemList.js"></script>
 <script src="/assets/js/view/SaleListView.js"></script>
+<script src="/assets/js/service/HTTPClient.js"></script>
 <script src="/assets/js/controller/SaleController.js"></script>
 <script>
 const products = [

@@ -40,4 +40,12 @@ class SaleItemList
   {
     return this._items.reduce( ( total, item ) => total += item.getTotal(), 0 );
   }
+
+  isEmpty() {
+    return this._items.length <= 0 ? true : false;
+  }
+
+  reset() {
+    this._items = [];
+  }
 }
