@@ -23,7 +23,7 @@ class SaleListView
         ${ list.items.map( item => `
             <tr>
               <td>${ item.name }</td>
-              <td>${ `${ item.price.toFixed( 2 ) }`.replace('.', ',') }</td>
+              <td>${ `${ item.value.toFixed( 2 ) }`.replace('.', ',') }</td>
               <td>${ item.tax }</td>
               <td>${ item.quantity }</td>
               <td>

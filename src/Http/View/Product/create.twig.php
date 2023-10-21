@@ -9,19 +9,24 @@
 <form action="/products/store" method="post">
   <div class="mb-3">
     <label for="name" class="form-label">Nome</label>
-    <input id="name" name="name" type="text" value="" class="form-control">
+    <input id="name" name="name" type="text" value="{{ old.name }}" class="form-control">
   </div>
 
   <div class="mb-3">
     <label for="value" class="form-label">Valor</label>
-    <input id="value" name="value" type="number" step="0.01" value="" class="form-control">
+    <input id="value" name="value" type="number" step="0.01" value="{{ old.value }}" class="form-control">
   </div>
   
   <div class="mb-3">
     <label for="category_id" class="form-label">Categoria</label>
       <select id="category_id" name="category_id" class="form-control">
         <option value=""> --SELECIONE-- </option>
-      </select>
+        
+        {% for category in categories %}
+        <option value="{{ category.id }}" {{ old.category_id == category.id ? 'selected' : '' }}>{{ category.name }}</option>
+        {% endfor %}
+      
+    </select>
   </div>
 
   <button type="submit" class="btn btn-primary">Cadastrar</button>

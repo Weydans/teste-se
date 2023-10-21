@@ -2,6 +2,8 @@
 
 namespace App\Http\Controller;
 
+use App\Domain\Repository\ProductRepository;
+use App\Domain\Service\ProductAllService;
 use Lib\Controller;
 use Lib\Flash;
 
@@ -29,10 +31,19 @@ class SaleController extends Controller
     public function create()
     {
         try {
+            $products = ProductAllService::execute( new ProductRepository() );
+
+            $data = [];
+
+            foreach ( $products as $product ) {
+                $data[] = $product->toJson();
+            }
+
 			return $this->responseView( 'Sale/create', [
 				'successMessage' => Flash::get('successMessage'),
 				'errorMessage'   => Flash::get('errorMessage'),
 				'old'            => Flash::get('oldValue'),
+				'products'       => json_encode( $data ),
 			]);
 
 		} catch ( \Exception $e ) {

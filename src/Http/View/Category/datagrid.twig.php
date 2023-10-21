@@ -15,24 +15,25 @@
     <tr>
       <th>Id</th>
       <th>Nome</th>
-      <th>Opções</th>
+      <th class="text-right">Imposto</th>
+      <th class="text-center">Opções</th>
     </tr>
   </thead>
   <tbody>
 
-  {% for process in processes %}    
+  {% for category in categories %}    
     <tr>
-      <td>{{ process.id }}</td>
-
-      <td>{{ process.person.name }}</td>
+      <td>{{ category.id }}</td>
+      <td>{{ category.name }}</td>
+      <td class="text-right">{{ category.tax }}%</td>
       
       <td>
-        <div class="d-flex justify-content-start">
-          <a href="/products/id/edit" class="btn btn-sm btn-success mr-2">
+        <div class="d-flex justify-content-center">
+          <a href="/categories/{{ category.id }}/edit" class="btn btn-sm btn-success mr-2">
             Editar
           </a>
       
-          <form action="/categories/id/delete" method="POST">
+          <form action="/categories/{{ category.id }}/delete" method="POST">
             <button type="submit" class="btn btn-sm btn-danger">
                 Remover
             </button>
@@ -47,13 +48,6 @@
   {% endfor %}
 
   </tbody>
-  <tfoot>
-      <tr>
-          <th>Id</th>
-          <th>Nome</th>
-          <th>Opções</th>
-      </tr>
-  </tfoot>
 </table>
 
 {% endblock %}

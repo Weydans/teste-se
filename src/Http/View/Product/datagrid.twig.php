@@ -15,44 +15,28 @@
     <tr>
       <th>Id</th>
       <th>Nome</th>
-      <th>Categoria</th>
       <th>Valor</th>
-      <th>Opções</th>
+      <th>Categoria</th>
+      <th>Imposto</th>
+      <th class="text-center">Opções</th>
     </tr>
   </thead>
   <tbody>
 
-  {% for process in processes %}    
+  {% for product in products %}    
     <tr>
-      <td>{{ process.id }}</td>
-
+      <td>{{ product.id }}</td>
+      <td>{{ product.name }}</td>
+      <td>R$ {{ product.value | number_format( 2, ',', '.' ) }}</td>
+      <td>{{ product.category.name }}</td>
+      <td>{{ product.category.tax | number_format( 2, ',', '.' ) }}%</td>
       <td>
-      {% for actionLabel, actionValue in actions %}
-        {{ process.type == actionValue ? actionLabel : '' }}
-      {% endfor %}
-      </td>
-
-      <td>{{ process.person.name }}</td>
-      
-      <td>{{ process.unit.name }}</td>
-
-      <td>
-      {% for statusLabel, statusValue in statusList %}
-        {{ process.status == statusValue ? statusLabel : '' }}
-      {% endfor %}
-      </td>
-
-      <td>{{ process.created_at|date('Y-m-d H:i:s') }}</td>
-      
-      <td>{{ process.updated_at|date('Y-m-d H:i:s') }}</td>
-      
-      <td>
-        <div class="d-flex justify-content-start">
-          <a href="/products/id/edit" class="btn btn-sm btn-success mr-2">
+        <div class="d-flex justify-content-center">
+          <a href="/products/{{ product.id }}/edit" class="btn btn-sm btn-success mr-2">
             Editar
           </a>
       
-          <form action="/products/id/delete" method="POST">
+          <form action="/products/{{ product.id }}/delete" method="POST">
             <button type="submit" class="btn btn-sm btn-danger">
                 Remover
             </button>
@@ -67,15 +51,6 @@
   {% endfor %}
 
   </tbody>
-  <tfoot>
-      <tr>
-          <th>Id</th>
-          <th>Nome</th>
-          <th>Categoria</th>
-          <th>Valor</th>
-          <th>Opções</th>
-      </tr>
-  </tfoot>
 </table>
 
 {% endblock %}

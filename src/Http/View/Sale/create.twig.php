@@ -37,37 +37,7 @@
 <script src="/assets/js/service/HTTPClient.js"></script>
 <script src="/assets/js/controller/SaleController.js"></script>
 <script>
-const products = [
-  {
-    id: 1,
-    name: 'LG K10',
-    price: 1000.0,
-    category: {
-      name: "Telefornia",
-      tax: 10,
-    }
-  },  
-  {
-    id: 2,
-    name: 'Batedeira',
-    price: 200.5,
-    category: {
-      name: "Eletro",
-      tax: 12,
-    }
-  },  
-  {
-    id: 3,
-    name: 'Cadeira',
-    price: 250.90,
-    category: {
-      name: "Moveis",
-      tax: 31.7,
-    }
-  },  
-];
-
-let saleController = new SaleController( products );
+let saleController = new SaleController( {{ products | raw }} );
 </script>
 
 {% endblock %}

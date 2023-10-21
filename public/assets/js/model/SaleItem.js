@@ -16,9 +16,9 @@ class SaleItem
     return this._product.name;
   }
 
-  get price() 
+  get value() 
   {
-    return this._product.price;
+    return this._product.value;
   }
 
   get quantity() 
@@ -33,11 +33,11 @@ class SaleItem
 
   getTotalTaxes() 
   {
-    return ( this.tax * this._product.price * this._quantity ) / 100;
+    return ( this.tax * this._product.value * this._quantity ) / 100;
   }
 
   getTotal() 
   {
-    return ( this._product.price * this._quantity ) + this.getTotalTaxes();
+    return ( this._product.value * this._quantity ) + this.getTotalTaxes();
   }
 }

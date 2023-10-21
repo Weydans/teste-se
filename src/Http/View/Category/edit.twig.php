@@ -6,15 +6,15 @@
     <h3>Categorias</h3>
 </div>
 
-<form action="/categories/id/update" method="post">
+<form action="/categories/{{ category.id }}/update" method="post">
   <div class="mb-3">
     <label for="name" class="form-label">Nome</label>
-    <input id="name" name="name" type="text" value="" class="form-control">
+    <input id="name" name="name" type="text" value="{{ old.name ?: category.name }}" class="form-control">
   </div>
 
   <div class="mb-3">
-    <label for="taxes" class="form-label">Impostos (%)</label>
-    <input id="taxes" name="taxes" type="number" value="" class="form-control">
+    <label for="tax" class="form-label">Imposto (%)</label>
+    <input id="tax" name="tax" type="number" value="{{ old.tax ?: category.tax }}" class="form-control">
   </div>
 
   <button type="submit" class="btn btn-primary">Atualizar</button>
