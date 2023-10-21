@@ -14,32 +14,21 @@
   <thead>
     <tr>
       <th>Id</th>
-      <th>Data</th>
       <th>Valor</th>
       <th>Opções</th>
     </tr>
   </thead>
   <tbody>
 
-  {% for process in processes %}    
+  {% for sale in sales %}    
     <tr>
-      <td>{{ process.id }}</td>
-
-      <td>{{ process.created_at|date('Y-m-d H:i:s') }}</td>
-      
-      <td>{{ process.person.name }}</td>
-      
+      <td>{{ sale.id }}</td>
+      <td>{{ sale.totalSale }}</td>
       <td>
         <div class="d-flex justify-content-start">
-          <a href="/sales/id/edit" class="btn btn-sm btn-success mr-2">
-            Editar
+          <a href="/sales/{{ sale.id }}" class="btn btn-sm btn-success mr-2">
+            Visualizar
           </a>
-      
-          <form action="/sales/id/delete" method="POST">
-            <button type="submit" class="btn btn-sm btn-danger">
-                Remover
-            </button>
-          </form>
         </div>
       </td>
     </tr>
@@ -49,15 +38,6 @@
     </tr>
   {% endfor %}
   </tbody>
-
-  <tfoot>
-    <tr>
-      <th>Id</th>
-      <th>Data</th>
-      <th>Valor</th>
-      <th>Opções</th>
-    </tr>
-  </tfoot>
 </table>
 
 {% endblock %}

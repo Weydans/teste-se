@@ -14,6 +14,7 @@ $route->post( '/api/sales/store', SaleController::class, 'store' );
 // ROTAS WEB
 $route->get( '/', SaleController::class, 'index' );
 $route->get( '/sales/create', SaleController::class, 'create' );
+$route->get( '/sales/$id', SaleController::class, 'show' );
 
 $route->get( '/products', ProductController::class, 'index' );
 $route->get( '/products/create', ProductController::class, 'create' );

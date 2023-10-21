@@ -8,8 +8,6 @@ use Lib\Request;
 abstract class Controller
 {
 	protected $request;
-	protected $get;
-	protected $post;
 	protected $data;
 	private $response;
 
@@ -17,7 +15,8 @@ abstract class Controller
 	{
 		$this->request = ( object ) array_merge( 
 			( array ) $request->get,
-			( array ) $request->post
+			( array ) $request->post,
+			( array ) json_decode( $request->input ),
 		);
 
 		$this->response = $response;
