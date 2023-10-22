@@ -3,14 +3,26 @@
 namespace App\Domain\Service;
 
 use App\Domain\Repository\ProductRepository;
+use App\Domain\Exception\InvalidDeleteException;
+use App\Domain\Repository\SaleItemRepository;
 
 class ProductDeleteService
 {
     public static function execute(
         int $id,  
-        ProductRepository $repository 
+        ProductRepository $productRepository,
+        SaleItemRepository $saleItemRepository
+
     ) : bool
     {
-        return $repository->delete( $id );
+        $saleItems = $saleItemRepository->getByProductId( $id );
+
+        if ( count( $saleItems ) ) {
+            throw new InvalidDeleteException( 
+                'Não é permitido remover produtos que possuem registro de venda' 
+            );
+        }
+
+        return $productRepository->delete( $id );
     }
 }

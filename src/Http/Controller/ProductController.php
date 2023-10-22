@@ -2,6 +2,7 @@
 
 namespace App\Http\Controller;
 
+use App\Domain\Exception\InvalidDeleteException;
 use Lib\Flash;
 use Lib\Controller;
 use App\Domain\Service\ProductAllService;
@@ -13,6 +14,7 @@ use App\Domain\Service\ProductDeleteService;
 use App\Domain\Repository\ProductRepository;
 use App\Domain\Repository\CategoryRepository;
 use App\Domain\Exception\RegisterNotFoundException;
+use App\Domain\Repository\SaleItemRepository;
 
 class ProductController extends Controller 
 {
@@ -172,7 +174,8 @@ class ProductController extends Controller
 		try {
 			ProductDeleteService::execute(
 				$this->request->id, 
-				new ProductRepository() 
+				new ProductRepository(), 
+                new SaleItemRepository()
 			);
 
 			Flash::set( 'successMessage', 'Registro removido com sucesso' );
@@ -181,6 +184,11 @@ class ProductController extends Controller
 		
 		} catch ( RegisterNotFoundException $e ) {
 			Flash::set( 'errorMessage', 'Registro não encontrado' );
+
+			return header("location: /products");
+
+		} catch ( InvalidDeleteException $e ) {
+			Flash::set( 'errorMessage', $e->getMessage() );
 
 			return header("location: /products");
 		

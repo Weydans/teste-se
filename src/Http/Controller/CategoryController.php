@@ -2,6 +2,7 @@
 
 namespace App\Http\Controller;
 
+use App\Domain\Exception\InvalidDeleteException;
 use Lib\Flash;
 use Lib\Controller;
 use App\Domain\Service\CategoryAllService;
@@ -166,6 +167,10 @@ class CategoryController extends Controller
 		
 		} catch ( RegisterNotFoundException $e ) {
 			Flash::set( 'errorMessage', 'Registro não encontrado' );
+
+			return header("location: /categories");
+		} catch ( InvalidDeleteException $e ) {
+			Flash::set( 'errorMessage', $e->getMessage() );
 
 			return header("location: /categories");
 		
