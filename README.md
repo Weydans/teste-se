@@ -1,6 +1,6 @@
 # Teste Soft Expert 
 
-Sistema de vendas des produtos desenvolvido para teste técnico para a empresa Soft Expert
+Sistema de venda de produtos desenvolvido para teste técnico para a empresa Soft Expert
 
 
 
@@ -12,17 +12,20 @@ Sistema de vendas des produtos desenvolvido para teste técnico para a empresa S
 
 ### Observações
 
-- Foi bem legal desenvolver o projeto. Algumas bibliotecas foram utilizadas no processo como Doctrine, Twig e Guzzle.
+- Foi bem legal desenvolver o projeto. Algumas bibliotecas foram utilizadas no processo como Doctrine, Twig e PHPUnit.
 - A pasta lib é um "micro-framework" que permite a criação de Rotas, Abstração de Controladores e Traits muito úteis no desenvolvimento.
+- Os scripts do front end encontram-se na pasta public. Preferi utilizar vanilla Javascript por haver necessidade em uma única página.
 - O sistema está dockerizado sendo esperado o mesmo comportamento em outras máquinas.
 - A aplicação conta com variáveis de ambiente (.env) para facilitar o bootstrap do projeto e esconder secrets.
 - Todas as classes presentes na pasta src estão em PHP nativo como requisitado.
 - SGBD Postgres como requisitado.
 - Biblioteca de front end Bootstrap (via CDN) como sugerido.
 - Foi utilizado o composer para gerenciar as dependências do projeto.
-- O projeto conta com migrações para criação da base e povoar tabelas com dados necessários.
+- O projeto conta com migrações para criação da base de dados.
+- O sistema possui testes de unidade, sendo 100% de cobertura nos modelos e pouco mais de 20% nos serviços, acredito que seja suficiente para me avaliarem.
 - Foi utilizado um arquivo Makefile para facilitar a instalação, Execução e Exclusão do projeto.
-- Não foi necessário o uso de Javascript dada a simplicidade do projeto, contudo se necessário podem me aplicar algum teste ou analisar alguns de meus projetos no meu Github.
+- O sistema segue o padrão arquitetural da Clean Archtecture.
+- Foram utilizados padrões de projeto como Repository e Singleton, métodos mágicos \__get, \__set e \__isset, iterfaces, traits, herança e muitas outras funcionalidades das versões mais modernas do PHP. 
 
   Boa avaliação, espero ter feito um bom trabalho ;)
 
@@ -68,6 +71,17 @@ make
 ## Acesso
 
 O acesso pode ser feito [aqui](http://localhost:8000/) nesse link ou pela url do navegador `http://localhost:8000/`.
+
+
+## Execução dos testes
+
+Executa os teste de unidade 
+```bash
+make test
+```
+
+__Para acessar os dados de cobertura de testes abra o arquivo `coverage/index.html` no seu navegador__
+
 
 
 

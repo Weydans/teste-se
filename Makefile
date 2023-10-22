@@ -17,5 +17,8 @@ install:
 	ls .data || mkdir .data
 	docker-compose up -d --build
 
+test:
+	docker-compose exec app php vendor/bin/phpunit tests --display-deprecations --display-warnings
+
 uninstall:
 	cd .. && rm -rf teste-se 
