@@ -15,17 +15,17 @@
     <tr>
       <th>Id</th>
       <th>Valor</th>
-      <th>Opções</th>
+      <th class="text-center">Opções</th>
     </tr>
   </thead>
   <tbody>
 
   {% for sale in sales %}    
     <tr>
-      <td>{{ sale.id }}</td>
+      <td>#{{ "%04d" | format( sale.id ) }}</td>
       <td>{{ sale.totalSale }}</td>
       <td>
-        <div class="d-flex justify-content-start">
+        <div class="d-flex justify-content-center">
           <a href="/sales/{{ sale.id }}" class="btn btn-sm btn-success mr-2">
             Visualizar
           </a>

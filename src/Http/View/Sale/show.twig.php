@@ -5,7 +5,7 @@
 <div id="alert_content"></div>
 
 <div class="d-flex justify-content-between mb-3 align-items-center">
-  <h3>Venda</h3>
+  <h3>Venda: #{{ "%04d" | format( sale.id ) }}</h3>
 </div>
 
 <table class="table table-sm">
