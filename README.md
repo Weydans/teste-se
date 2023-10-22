@@ -2,6 +2,12 @@
 
 Sistema de venda de produtos desenvolvido para teste técnico para a empresa Soft Expert
 
+## Fluxos da aplicação
+
+Para que possam ser utilidas todas as funconalidades, 
+é necessário realizar, primeiro, o cadastro de categorias de produtos, 
+isso permitirá cadastrar os produtos, que por sua vez, permitirá cadastrar as vendas no sistema.
+
 
 
 ## Importante
