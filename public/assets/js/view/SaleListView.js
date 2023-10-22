@@ -10,12 +10,13 @@ class SaleListView
     this._container.innerHTML = `
       <thead>
         <tr>
-          <th style="width: 30%">Produto</th>
-          <th>Valor (R$)</th>
-          <th>Imposto (%)</th>
-          <th>Quantidade</th>
-          <th>Imposto (R$)</th>
-          <th colspan="2">Total (R$)</th>
+          <th style="width: 25%">Produto</th>
+          <th class="text-right">Valor (R$)</th>
+          <th class="text-right">Imposto (%)</th>
+          <th class="text-center">Quantidade</th>
+          <th class="text-right">Imposto (R$)</th>
+          <th class="text-right">Total (R$)</th>
+          <th></th>
         </tr>
       </thead>
 
@@ -23,13 +24,13 @@ class SaleListView
         ${ list.items.map( item => `
             <tr>
               <td>${ item.name }</td>
-              <td>${ `${ item.value.toFixed( 2 ) }`.replace('.', ',') }</td>
-              <td>${ item.tax }</td>
-              <td>${ item.quantity }</td>
-              <td>
+              <td class="text-right">${ `${ item.value.toFixed( 2 ) }`.replace('.', ',') }</td>
+              <td class="text-right">${ item.tax }</td>
+              <td class="text-center">${ item.quantity }</td>
+              <td class="text-right">
                 ${ `${ item.getTotalTaxes().toFixed( 2 ) }`.replace('.', ',') }
               </td>
-              <td>
+              <td class="text-right">
                 ${ `${ item.getTotal().toFixed( 2 ) }`.replace('.', ',') }
               </td>
               <td class="text-right">

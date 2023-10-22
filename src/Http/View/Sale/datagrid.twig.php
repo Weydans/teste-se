@@ -10,11 +10,11 @@
   </div>
 </div>
 
-<table class="table table-sm">
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Id</th>
-      <th>Valor</th>
+      <th class="text-right">Valor</th>
       <th class="text-center">Opções</th>
     </tr>
   </thead>
@@ -22,11 +22,11 @@
 
   {% for sale in sales %}    
     <tr>
-      <td>#{{ "%04d" | format( sale.id ) }}</td>
-      <td>{{ sale.totalSale }}</td>
+      <td><b>#{{ "%04d" | format( sale.id ) }}</b></td>
+      <td class="text-right">R$ {{ sale.totalSale | number_format( 2, ',', '.' ) }}</td>
       <td>
         <div class="d-flex justify-content-center">
-          <a href="/sales/{{ sale.id }}" class="btn btn-sm btn-success mr-2">
+          <a href="/sales/{{ sale.id }}" class="btn btn-sm btn-primary mr-2">
             Visualizar
           </a>
         </div>
