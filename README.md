@@ -28,11 +28,11 @@ isso permitirá cadastrar os produtos, que por sua vez, permitirá cadastrar as 
 - Biblioteca de front end Bootstrap (via CDN) como sugerido.
 - Foi utilizado o composer para gerenciar as dependências do projeto.
 - O projeto conta com migrações para criação da base de dados.
-- O sistema possui testes de unidade, sendo 100% de cobertura nos modelos e pouco mais de 20% nos serviços, acredito que seja suficiente para me avaliarem.
 - Foi utilizado um arquivo Makefile para facilitar a instalação, Execução e Exclusão do projeto.
 - O sistema segue o padrão arquitetural da Clean Archtecture.
 - Foram utilizados padrões de projeto como Repository e Singleton, métodos mágicos \__get, \__set e \__isset, iterfaces, traits, herança e muitas outras funcionalidades das versões mais modernas do PHP. 
-
+- Foi realizada a cobertura de testes de unidade sobre as principais classes de domínio do negócio, incluindo as pastas, Model e Service. Com isso a aplicação no geral possui atualmente 10.72% de cobertura, contudo, a camada de domínio encontra-se com 70.25% de cobertura, sendo que, o que falta fica por conta dos repositórios que funcionam como adaptadores para cominicação com o Doctrine, ou seja, baixo risco de erros.
+-
   Boa avaliação, espero ter feito um bom trabalho ;)
 
 ## Dependências
