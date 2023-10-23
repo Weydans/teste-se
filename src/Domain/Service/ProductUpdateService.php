@@ -15,18 +15,14 @@ class ProductUpdateService
         CategoryRepository $categoryRepository
     ) : Product
     {
-        $product = ProductFindService::execute( 
-            $productDto->id, 
-            $productRepository 
-        );
+        $product = $productRepository->find( $productDto->id );
 
         $product->name  = $productDto->name;
         $product->value = $productDto->value; 
 
         if ( $productDto->category_id != $product->category->id ) {
-            $product->category = CategoryFindService::execute( 
-                $productDto->category_id, 
-                $categoryRepository 
+            $product->category = $categoryRepository->find( 
+                $productDto->category_id 
             );
         }
 

@@ -13,7 +13,7 @@ class CategoryUpdateService
         CategoryRepository $repository 
     ) : Category
     {
-        $category = CategoryFindService::execute( $categoryDto->id, $repository );
+        $category = $repository->find( $categoryDto->id );
 
         $category->name = $categoryDto->name;
         $category->tax  = $categoryDto->tax; 

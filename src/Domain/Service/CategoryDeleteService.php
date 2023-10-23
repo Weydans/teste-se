@@ -14,7 +14,7 @@ class CategoryDeleteService
     {
         $category = $repository->find( $id );
 
-        if ( count( $category->products ) ) {
+        if ( !$category->products->isEmpty() ) {
             throw new InvalidDeleteException( 
                 'Não é permitido remover categorias que possuem produtos registrados' 
             );

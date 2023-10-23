@@ -6,7 +6,7 @@ use App\Domain\Repository\ProductRepository;
 
 class ProductAllService
 {
-    public static function execute( ProductRepository $repository ) : array 
+    public static function execute( ProductRepository $repository ) : ?array 
     {
         return $repository->all();
     }

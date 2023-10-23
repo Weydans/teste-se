@@ -17,7 +17,7 @@ class SaleCreateService
     ) : Sale 
     {
         $sale     = new Sale();
-        $products = ProductAllService::execute( $productRepository );  
+        $products = $productRepository->all();  
 
         foreach( $data as $saleItem ) {
             foreach( $products as $product ) {
