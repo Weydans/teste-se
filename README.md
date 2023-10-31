@@ -1,6 +1,6 @@
-# Teste Soft Expert 
+# Teste SE
 
-Sistema de venda de produtos desenvolvido para teste técnico para a empresa Soft Expert
+Sistema de venda de produtos desenvolvido para teste técnico para a empresa SE
 
 ## Fluxos da aplicação
 
